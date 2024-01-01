@@ -3,7 +3,7 @@
 as a float"""
 
 
-def add(a, b):
+def add(a: float, b: float) -> float:
     """function add to return their sums
     as a float"""
-    return float(a + b)
+    return a + b
