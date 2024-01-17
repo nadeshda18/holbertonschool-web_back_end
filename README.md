@@ -3,3 +3,4 @@ python_async_function
 python_async_comprehension
 No SQL
 pagination
+ES6 Basics
