@@ -1,56 +1,46 @@
-// 2-hbtn_course.js
+/* eslint-disable */
 export default class HolbertonCourse {
   constructor(name, length, students) {
-    this._name = this.validateString(name, 'Name');
-    this._length = this.validateNumber(length, 'Length');
-    this._students = this.validateArray(students, 'Students');
+      if (typeof name !== 'string') throw TypeError('Name must be a string'); {
+          this._name = name;
+      }
+      if (typeof length !== 'number') throw TypeError('Length must be a number'); {
+          this._length = length;
+      }
+      if (!Array.isArray(students)) throw TypeError('Students must be an array'); {
+          this._students = students;
+      }
   }
 
   get name() {
-    return this._name;
+      return this._name;
   }
 
   set name(newName) {
-    // eslint-disable-next-line class-methods-use-this
-    this._name = this.validateString(newName, 'Name');
+      if (typeof newName !== 'string') throw TypeError('Name must be a string'); {
+          this._name = newName;
+      }
   }
 
+
   get length() {
-    return this._length;
+      return this._length;
   }
 
   set length(newLength) {
-    // eslint-disable-next-line class-methods-use-this
-    this._length = this.validateNumber(newLength, 'Length');
+      if (typeof newLength !== 'number') throw TypeError('Length must be a number'); {
+          this._length = newLength;
+      }
   }
 
+
   get students() {
-    return this._students;
+      return this._students;
   }
 
   set students(newStudents) {
-    // eslint-disable-next-line class-methods-use-this
-    this._students = this.validateArray(newStudents, 'Students');
-  }
-
-  validateString(value, attributeName) {
-    if (typeof value !== 'string') {
-      throw new TypeError(`${attributeName} must be a string`);
-    }
-    return value;
-  }
-
-  validateNumber(value, attributeName) {
-    if (typeof value !== 'number' || Number.isNaN(value)) {
-      throw new TypeError(`${attributeName} must be a number`);
-    }
-    return value;
-  }
-
-  validateArray(value, attributeName) {
-    if (!Array.isArray(value) || !value.every((item) => typeof item === 'string')) {
-      throw new TypeError(`${attributeName} must be an array of strings`);
-    }
-    return value;
+      if (!Array.isArray(newStudents)) throw TypeError('Students must be an array'); {
+          this._students = newStudents;
+      }
   }
 }
