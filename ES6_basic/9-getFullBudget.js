@@ -1,4 +1,4 @@
-/* eslint import/extensions: ['error', 'ignorePackages', { js: 'never', jsx: 'never', ts: 'never', tsx: 'never' }] */ // eslint-disable-line
+/* eslint-disable */
 import getBudgetObject from './7-getBudgetObject.js';
 
 export default function getFullBudgetObject(income, gdp, capita) {
