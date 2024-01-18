@@ -1,9 +1,9 @@
 // 2-hbtn_course.js
 export default class HolbertonCourse {
   constructor(name, length, students) {
-    this._name = name;
-    this._length = length;
-    this._students = students;
+    this._name = this.validateString(name, 'Name');
+    this._length = this.validateNumber(length, 'Length');
+    this._students = this.validateArray(students, 'Students');
   }
 
   get name() {
@@ -11,8 +11,8 @@ export default class HolbertonCourse {
   }
 
   set name(newName) {
-    this.validateString(newName);
-    this._name = newName;
+    // eslint-disable-next-line class-methods-use-this
+    this._name = this.validateString(newName, 'Name');
   }
 
   get length() {
@@ -20,8 +20,8 @@ export default class HolbertonCourse {
   }
 
   set length(newLength) {
-    this.validateNumber(newLength);
-    this._length = newLength;
+    // eslint-disable-next-line class-methods-use-this
+    this._length = this.validateNumber(newLength, 'Length');
   }
 
   get students() {
@@ -29,27 +29,27 @@ export default class HolbertonCourse {
   }
 
   set students(newStudents) {
-    this.validateArray(newStudents);
-    this._students = newStudents;
+    // eslint-disable-next-line class-methods-use-this
+    this._students = this.validateArray(newStudents, 'Students');
   }
 
-  validateString(value) {
+  validateString(value, attributeName) {
     if (typeof value !== 'string') {
-      throw new TypeError('Name must be a string');
+      throw new TypeError(`${attributeName} must be a string`);
     }
     return value;
   }
 
-  validateNumber(value) {
+  validateNumber(value, attributeName) {
     if (typeof value !== 'number' || Number.isNaN(value)) {
-      throw new TypeError('Length must be a number');
+      throw new TypeError(`${attributeName} must be a number`);
     }
     return value;
   }
 
-  validateArray(value) {
-    if (!Array.isArray(value)) {
-      throw new TypeError('Students must be an array');
+  validateArray(value, attributeName) {
+    if (!Array.isArray(value) || !value.every((item) => typeof item === 'string')) {
+      throw new TypeError(`${attributeName} must be an array of strings`);
     }
     return value;
   }
