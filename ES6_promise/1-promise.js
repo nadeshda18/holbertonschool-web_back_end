@@ -3,7 +3,7 @@ function getFullResponseFromAPI(success) {
     if (success) {
       resolve({ status: 200, body: 'Success' });
     } else {
-      reject('The fake API is not working correctly');
+      reject('Error: The fake API is not working correctly');
     }
   });
 }
