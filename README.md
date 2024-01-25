@@ -5,3 +5,4 @@ No SQL
 pagination
 ES6 Basics
 ES6 classes
+ES6 Promises
