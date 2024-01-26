@@ -5,6 +5,6 @@ export default function handleProfileSignup(firstname, lastname, filename) {
   return Promise.all([uploadPhoto(filename), signUpUser(firstname, lastname)])
     .then(
       (value) => ({ status: 'success', value }),
-      (error) => ({ status: 'error', error }),
+      (error) => ({ status: 'error', error: new Error(error) }),
     );
 }
