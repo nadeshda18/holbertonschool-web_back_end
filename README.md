@@ -6,3 +6,4 @@ pagination
 ES6 Basics
 ES6 classes
 ES6 Promises
+ES6 data manipulation
