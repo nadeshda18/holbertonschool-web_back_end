@@ -7,13 +7,13 @@ export default function updateStudentGradeByCity(students, city, newGrades) {
 
   const mapping = sortFilter.map((student) => {
     const newGrade = newGrades.filter((grade) => grade.studentId === student.id);
-    const updated_grade = { ...student };
+    const updatedGrade = { ...student };
     if (newGrade[0]) {
-      updated_grade.grade = newGrade[0].grade;
+      updatedGrade.grade = newGrade[0].grade;
     } else {
-      updated_grade.grade = 'N/A';
+      updatedGrade.grade = 'N/A';
     }
-    return updated_grade;
+    return updatedGrade;
   });
   return mapping;
 }
